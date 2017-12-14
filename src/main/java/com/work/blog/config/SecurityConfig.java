@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				// 允许拥有管理员角色的用户访问
 				.antMatchers("/admins/**").hasRole("ADMIN").and()
 				// 表单登录以及登录界面和失败登录界面
-				.formLogin().loginPage("login").failureUrl("/login-error").and()
+				.formLogin().loginPage("/login").failureUrl("/login-error").and()
 				// 启用记住我功能
 				.rememberMe().key(KEY).and()
 				// 处理异常 如果拒绝连接错误则跳转相应的页面
