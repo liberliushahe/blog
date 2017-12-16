@@ -12,7 +12,7 @@ public class Response {
 	private String message;
 	private Object body;
 	
-	 //响应处理是否成功 
+
 	public boolean isSuccess() {
 		return success;
 	}
@@ -20,7 +20,6 @@ public class Response {
 		this.success = success;
 	}
 	
-	//响应处理的消息 
 	public String getMessage() {
 		return message;
 	}
@@ -28,7 +27,6 @@ public class Response {
 		this.message = message;
 	}
 	
-	// 响应处理的返回内容 
 	public Object getBody() {
 		return body;
 	}
