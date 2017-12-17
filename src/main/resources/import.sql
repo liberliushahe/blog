@@ -1,0 +1,1 @@
+insert into user(name,email,username,password,headimage) values("管理员"，"1540077@qq.com","admin","123456"," ")
