@@ -1,1 +1,1 @@
-insert into user(name,email,username,password,headimage) values("管理员"，"1540077@qq.com","admin","123456"," ")
+insert into user(id,name,email,username,password,headimage) values(1,'管理员','XXXXXXX@qq.com','admin','WERSDSRSDSSS','http://www.qq.head.jpg');

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import com.work.blog.domain.User;
 import com.work.blog.repository.UserRepository;
 
@@ -24,25 +23,24 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Transactional
+	@Transactional(rollbackOn=Exception.class)
 	@Override
 	public User saveUser(User user) {
-		// TODO Auto-generated method stub
 		return userRepository.save(user);
 	}
-	@Transactional
+	@Transactional(rollbackOn=Exception.class)
 	@Override
 	public void removeUser(Long id) {
 		// TODO Auto-generated method stub
 		userRepository.delete(id);
 	}
-	@Transactional
+	@Transactional(rollbackOn=Exception.class)
 	@Override
 	public void removeUsersInBatch(List<User> users) {
 		// TODO Auto-generated method stub
 		userRepository.deleteInBatch(users);
 	}
-	@Transactional
+	@Transactional(rollbackOn=Exception.class)
 	@Override
 	public User updateUser(User user) {
 		// TODO Auto-generated method stub
@@ -64,6 +62,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Page<User> listUsersByNameLike(String name, Pageable pageable) {
 		// TODO Auto-generated method stub
+		name="%"+name+"%";
 		return userRepository.findByNameLike(name, pageable);
 	}
 
