@@ -1,5 +1,6 @@
 package com.work.blog.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import com.work.blog.domain.User;
  * <a href="https://github.com/liberliushahe/blog"></a>
  * @creation 2017年12月16日
  */
+@Controller
 public class MainController {
 	/**
 	 * 返回访问根节点返回主页
@@ -27,7 +29,7 @@ public class MainController {
 	 */
 	@GetMapping("/index")
 	public String index() {
-		return "redirect:/blogs";
+		return "redirect:/login";
 	}
 	/**
 	 * 登录界面
