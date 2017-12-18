@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -95,19 +96,24 @@ public class Blog implements Serializable{
 	/**
 	 * 评论
 	 */
-	@OneToMany()
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name="blog_comment",joinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"),
+	      inverseJoinColumns = @JoinColumn(name = "comment_id", referencedColumnName = "id"))
 	private List<Comment> comments;
 	
 	/**
 	 * 点赞
 	 */
-	@OneToMany()
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "blog_vote", joinColumns = @JoinColumn(name = "blog_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "vote_id", referencedColumnName = "id"))
 	private List<Vote> votes;
 	
 	/**
 	 * 分类
 	 */
-	@OneToOne()
+	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+	@JoinColumn(name="catalog_id")
 	private Catalog catalog;
 	
 	/**
@@ -115,4 +121,98 @@ public class Blog implements Serializable{
 	 */
 	@Column(name="tags", length = 100) 
 	private String tags;  
+	
+	protected Blog() {
+		
+	}
+	public Blog(String title, String summary,String content) {
+		this.title = title;
+		this.summary = summary;
+		this.content = content;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getHtmlContent() {
+		return htmlContent;
+	}
+	public void setHtmlContent(String htmlContent) {
+		this.htmlContent = htmlContent;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
+	}
+	public Integer getReadSize() {
+		return readSize;
+	}
+	public void setReadSize(Integer readSize) {
+		this.readSize = readSize;
+	}
+	public Integer getCommentSize() {
+		return commentSize;
+	}
+	public void setCommentSize(Integer commentSize) {
+		this.commentSize = commentSize;
+	}
+	public Integer getVoteSize() {
+		return voteSize;
+	}
+	public void setVoteSize(Integer voteSize) {
+		this.voteSize = voteSize;
+	}
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+	public List<Vote> getVotes() {
+		return votes;
+	}
+	public void setVotes(List<Vote> votes) {
+		this.votes = votes;
+	}
+	public Catalog getCatalog() {
+		return catalog;
+	}
+	public void setCatalog(Catalog catalog) {
+		this.catalog = catalog;
+	}
+	public String getTags() {
+		return tags;
+	}
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+	
 }
