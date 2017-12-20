@@ -3,7 +3,6 @@ package com.work.blog.domain;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
-
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,7 +17,6 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.NotEmpty;
 /**
  * 博客实体

@@ -21,7 +21,7 @@ public class MainController {
 	 */
 	@GetMapping("/")
 	public String root(){
-		return "redirect:/index";
+		return "index";
 	}
 	/**
 	 * 访问首页返回主页
@@ -29,7 +29,7 @@ public class MainController {
 	 */
 	@GetMapping("/index")
 	public String index() {
-		return "redirect:/login";
+		return "login";
 	}
 	/**
 	 * 登录界面
