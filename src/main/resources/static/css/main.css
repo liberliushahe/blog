@@ -1,0 +1,127 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: #F1F1F1;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
+}
+a:after{
+	text-decoration: none;
+}
+ul li{
+	list-style: none;
+}
+/**
+ * 头部样式
+ */
+.navpadding{
+	padding-left: 10%;
+	padding-right: 6%;
+	
+}
+.btn-login{
+	background-color: darkgray;
+}
+.btn-register{
+	border-radius: 10px;
+	border: 1px solid orangered;
+	color: red;
+}
+.search{
+	transition: width .5s;
+	-webkit-transition: width .5s;
+}
+.btn-write{
+	border-radius: 17px;
+}
+/**
+ * 左侧内容样式
+ */
+.left-card{
+	margin-bottom: 15px;background-color: #fff;padding: 10px;width: 100%;  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+.footer-detail{
+	
+	font-style: italic;
+	font-size: 10px;
+}
+.footer-detail img{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+/**
+ * 右侧内容样式
+ */
+.right-card{
+	float: right;
+	margin-bottom: 15px;background-color: #fff;padding: 4px;width: 100%;
+}
+.hot-user{
+	padding: 6px;
+}
+.hot-user img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin: 2px;
+}
+.tag{
+	padding: 3px;
+	background-color: #F1F2F1;
+	display: inline-block;
+	margin: 4px;
+}
+.tag a:hover{
+	text-decoration: none;
+	color: white;
+}
+.tag:hover{
+	background-color: #000000;
+}
+.hot-title{
+	padding-left: 14px;
+	line-height: 28px;
+}
+.split{
+	width: 13px;
+	color: royalblue;
+	margin-right: 3px;
+}
+/**
+ * 版权样式
+ */
+.footer{
+	text-align: center;
+	
+}
+.footer ul li{
+	display: inline;
+}
+/**
+ * 登录模块样式
+ */
+#login{
+	width: 100%;
+	height: 400px;
+   border: 3px solid #FFFFFF;
+   border-radius: 6px;
+   padding-top: 20px;
+	padding-left: 80px;
+	padding-right: 80px;
+	margin-top: 70px;
+	text-align: center;
+}
+.form-button{
+	margin:0 auto;
+}
+.third-login{
+	text-align: left;
+}
