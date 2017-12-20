@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" data-th-fragment="header">
+	<head>
+		<meta charset="utf-8" />
+		<title>博客首页</title>             
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="../css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
+		<!-- Bootstrap CSS -->
+        <link href="../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+		
+	</head>
+	<!--
+        	作者：1540077031@qq.com
+        	时间：2017-12-18
+        	描述：博客首页
+        -->
+	<body>
+		<!--描述：容器开始-->
+			
+<!--描述：头部导航开始-->			
+<nav class="navbar navbar-default navpadding"  role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">博客标识</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav">
+				<li class="active">
+					<a href="#">最新</a>
+				</li>
+				<li>
+					<a href="#">最热</a>
+				</li>
+			</ul>
+		</div>
+		<form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control search" placeholder="输入关键字" id="search" onblur="returnSearch()" onfocus="slideSearch()">
+			</div>
+			<button type="submit" class="btn btn-default">搜索</button>
+		</form>
+		<div class="navbar-form navbar-right">
+			<a class="btn btn-default btn-login" href="#">登录</a>
+			<a class="btn btn-default btn-register" href="#">注册</a>
+			<a class="btn btn-default btn-write" href="#"><img src="img/write.png" />&nbsp;写博客</a>
+		</div>
+	</div>
+</nav>
+<!--描述：头部导航结束-->				
+	</body>
+</html>
