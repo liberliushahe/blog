@@ -29,7 +29,7 @@ public class MainController {
 	 */
 	@GetMapping("/index")
 	public String index() {
-		return "login";
+		return "index";
 	}
 	/**
 	 * 登录界面
