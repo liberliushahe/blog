@@ -1,10 +1,12 @@
 package com.work.blog.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.work.blog.domain.User;
+import com.work.blog.service.UserService;
 
 /**
  * 主页控制器类
@@ -14,6 +16,8 @@ import com.work.blog.domain.User;
  */
 @Controller
 public class MainController {
+	@Autowired
+	private UserService userService;
 	/**
 	 * 返回访问根节点返回主页
 	 * @return
@@ -28,7 +32,7 @@ public class MainController {
 	 */
 	@GetMapping("/index")
 	public String index() {
-		return "index";
+		return "redirect:/blogs";
 	}
 	/**
 	 * 登录界面
@@ -62,6 +66,7 @@ public class MainController {
 	 */
 	@PostMapping("/register")
 	public String userRegister(User user){
+		userService.saveUser(user);
 		return "redirect:/login";
 	}
 	/**
