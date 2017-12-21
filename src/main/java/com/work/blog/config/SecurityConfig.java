@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 				// 允许静态文件通过
-				.antMatchers("css/**", "js/**", "font/**").permitAll().antMatchers("/console/**").permitAll()
+				.antMatchers("css/**", "js/**", "font/**","img/**").permitAll().antMatchers("/console/**").permitAll()
 				// 允许拥有管理员角色的用户访问
 				.antMatchers("/admins/**").hasRole("ADMIN").and()
 				// 表单登录以及登录界面和失败登录界面

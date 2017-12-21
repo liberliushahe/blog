@@ -125,3 +125,12 @@ ul li{
 .third-login{
 	text-align: left;
 }
+.remember-me{
+	float: left;
+}
+.forget-pass{
+	float: right;
+}
+.btn-login-button{
+	width: 150px;
+}

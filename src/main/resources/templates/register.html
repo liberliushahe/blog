@@ -4,12 +4,13 @@
 <head th:replace="fragments/header :: header">
 </head>
 <body>
+<!--描述：注册内容开始-->	
 <div class="container">
 <div class="row">
 	<div class="col-md-3 col-sm-1"></div>
 <div class="col-md-6 col-sm-10">
  	<div id="login" class="form-group" role="form">
-<form action="#" method="post">
+<form action="/register" method="post">
 	<header>
 	<h4>账号注册</h4>
 	</header>
@@ -27,7 +28,7 @@
     </div>
     <br />
     	<div class="input-group form-button">
-    	 <input type="submit" class="btn btn-default" value="注册"/>&nbsp;&nbsp;&nbsp;<input type="reset" class="btn btn-default" value="重置"/>
+    	 <input type="submit" class="btn btn-default btn-login-button" value="注册"/>&nbsp;&nbsp;&nbsp;<input type="reset" class="btn btn-default btn-login-button" value="重置"/>
     </div>
     
 </form>
@@ -36,9 +37,10 @@
 	
 </div>
 <div class="col-md-3 col-sm-1"></div>
-<!--描述：右侧内容结束-->	
 </div>
 </div>
+<!--描述：注册内容结束-->	
+<br/>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
