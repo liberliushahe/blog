@@ -18,19 +18,20 @@ import com.work.blog.vo.Menu;
  * @creation 2017年12月13日
  */
 @Controller
-@RequestMapping("/admins")
 public class AdminController {
 	/**
 	 * 获取管理员主页
 	 * @param model
 	 * @return
 	 */
-	@GetMapping
+	@RequestMapping("/admin")
 	public ModelAndView listUsers(Model model) {
-		List<Menu> list = new ArrayList<>();
-		list.add(new Menu("用户管理", "/users"));
-		model.addAttribute("list", list);
-		return new ModelAndView("/admins/index", "model", model);
+		//List<Menu> list = new ArrayList<>();
+		//System.out.println("admin page");
+		//list.add(new Menu("用户管理", "/users"));
+		//model.addAttribute("list", list);
+		return new ModelAndView("admins/index");
 	}
+	
  
 }

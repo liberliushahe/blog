@@ -2,9 +2,7 @@
 	margin: 0;
 	padding: 0;
 }
-body{
-	background-color: #F1F1F1;
-}
+
 a{
 	text-decoration: none;
 }
@@ -133,4 +131,164 @@ ul li{
 }
 .btn-login-button{
 	width: 150px;
+}
+/**
+*管理员样式开始
+**/
+/*head start*/
+.navbar-default {
+	background-color: #2A94DE;
+	border-radius:0px;
+	padding:0;	
+}
+
+.head-font-color {
+	color: white;
+	font-size: 20px;
+}
+
+.vitae-nav {
+	margin: 0 !important;
+	padding-right: 10px;
+}
+
+.vitae-nav li {
+	float: left;
+}
+
+.vitae-nav li a {
+	height: 50px;
+	min-width: 40px;
+	color:#fff;
+}
+.vitae-nav li a:hover {
+	color:#000;
+}
+.vitae-nav>li.open a {
+	background-color: #f3f3f3!important;
+}
+
+.gray {
+	color: #777777;
+}
+
+
+/*head end*/
+
+/*left menu start*/
+.menu-wrap{
+	height:93%;
+	margin-top:-21px;
+	position:absolute;
+}
+#mini {
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+.menu-nav {
+	width: 220px;
+	height: 100%;
+	margin-right:10px;
+	position:abolute;
+	background-color: #263238;
+}
+.menu-nav a {
+	display: block;
+	padding-left: 20px;
+	overflow: hidden;
+	line-height: 46px;
+	max-height: 46px;
+	color: #ABB1B7;
+	transition: all .3s;
+}
+
+.menu-nav a span {
+	margin-left: 30px;
+}
+.menu-nav-item{
+	position: relative;
+	background: rgba(0,0,0.1);
+}
+/*隐藏ul*/
+.menu-nav-item ul{
+    display: none;
+	background: rgba(0,0,0.1);
+}
+/*显示ul*/
+.menu-nav .nav-show ul{display: block;}
+.menu-nav-item>a:before{content:"";position: absolute;left: 0px;width: 2px;height: 45px;background:#34A0CE;opacity: 0;transition: all .3s;}
+.menu-nav .nav-icon{font-size: 20px;position: absolute;margin-left: -1px;}
+/* 此处修改导航图标 可自定义iconfont 替换*/
+.icon_1::after{content: "\e62b";}
+.icon_2::after{content: "\e669";}
+.icon_3::after{content: "\e61d";}
+.nav-more{float: right;font-size: 12px;margin-right: 20px;transition: transform .3s;}
+/* 此处为导航右侧箭头 如果自定义iconfont 也需要替换*/
+.nav-more::after{content: "\e621";}
+/*3D转换*/
+.nav-show .nav-more{transform:rotate(90deg);}
+.nav-show,.menu-nav-item>a:hover{color: #FFF;background:rgba(0,0,0,.1);}
+.menu-nav-item li:hover a{color: #FFF;background: rgba(0,0,0,.1);}
+/*菜单缩略样式*/
+.menu-nav-mini.menu-nav{width: 60px;}
+.mebu-nav-mini .nav-more{margin-right: -20px;}
+.menu-nav-mini .menu-nav-item>a span{display: none;} 
+.menu-nav-mini .menu-nav-item ul{position: absolute;left: 60px;width:180px;top: 0;overflow: hidden;z-index: 99;background:#3C474C;}
+.menu-nav-mini .menu-nav-item:hover a{color:#FFF}
+.menu-nav-mini .menu-nav-item:hover ul{display: block;}
+.menu-nav-mini .menu-nav-item:hover{background:rgba(255,255,255,.1)}
+.menu-nav-mini .menu-nav-item:hover a:before{opacity: 1;}
+/*left menu end*/
+/*
+*管理员主内容区样式
+*/
+.right-wrap-click{margin-left:66px;}
+.right-wrap-margin{margin-left: 220px;}
+.right-wrap{position: relative; width: auto; height:100%;}
+/*表格样式*/
+.xt-table{ margin: 20px; border: 1px solid #dcdcdc;}
+.xt-table td,.xt-table th{ background: #fff;padding:10px;}
+.xt-table th{ background: #EEE; border:1px solid #eee; text-align:center}
+.xt-table tr{text-align:center;}
+.xt-table tr.xt-bg td{ background: #f9fafa;}
+.xt-table tr td a{ padding: 3px 5px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 0 2px;}
+.xt-table tr:hover td{ background: #fff; color: #fff;background: #30abaa}
+.xt-table tr:hover td a:hover{color: #baa01b; background: #f5e17a;}
+/*分页样式*/
+.xt-fenye{ margin: 20px; background: #fff; border: 1px solid #dcdcdc; overflow: hidden; padding: 10px 15px;}
+.xt-fenye-left{ float: left; padding: 5px 0;}
+.xt-fenye-right{ float: right;}
+.xt-fenye-right a,.xt-fenye-right input{ display: inline-block; vertical-align: middle;}
+.xt-fenye-right a{ background: #f8f8f8; border: 1px solid #dcdcdc; padding: 5px 15px; color: #666; text-decoration: none;}
+.xt-fenye-right a:hover{ background: #21b6b4; color: #fff; border: 1px solid #21b6b4;}
+.xt-fenye-right a.xt-link{ background: #21b6b4; color: #fff; border: 1px solid #21b6b4;}
+.xt-fenye-right a:hover.xt-link{ background: #30abaa; color: #fff; border: 1px solid #30abaa;}
+.xt-fenye-right input{ width: 40px; text-align: center; padding: 4px;}
+/*顶部快捷操作*/
+.top-container{margin:20px;background: #fff; border: 1px solid #dcdcdc;overflow: hidden;padding:4px;}
+/* input */
+.xt-input{ background: #eee; padding: 10px 20px; margin: 20px; border: 1px solid #dcdcdc;}
+.xt-input span,.xt-input input,.xt-input select{ display: inline-block; vertical-align: middle;}
+.xt-input span{ padding: 0 5px;}
+.int-text{ padding: 6px 10px; border: 1px solid #dcdcdc;}
+/*主页卡片样式*/
+.card{
+	width:31%;
+	float:left;
+	height:130px;
+	margin:2px 10px;
+	background-color:gray;
+}
+.card-left{
+	width:64%;
+	float:left;
+	height:130px;
+	margin:20px 10px;
+	background-color:gray;
+}
+.card-right{
+	width:31%;
+	float:left;
+	height:230px;
+	margin:20px 10px;
+	background-color:gray;
 }
