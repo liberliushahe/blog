@@ -45,6 +45,7 @@ dependencies {
 	compile('net.java.dev.jna:jna:4.3.0')
     //添加热部署的依赖
     compile("org.springframework.boot:spring-boot-devtools")
-
+    // 添加  Apache Commons Lang 依赖
+	compile('org.apache.commons:commons-lang3:3.5')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

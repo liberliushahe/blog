@@ -1,5 +1,11 @@
 package com.work.blog.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.work.blog.domain.User;
+import com.work.blog.service.UserService;
 import com.work.blog.vo.Response;
 
 /**
@@ -23,6 +30,8 @@ import com.work.blog.vo.Response;
 @Controller
 @RequestMapping("/users")
 public class UserController {
+	@Autowired
+	private UserService userService;
 	/**
 	 * 获取用户列表
 	 * @param async
@@ -38,8 +47,14 @@ public class UserController {
 			@RequestParam(value="pageSize",required=false,defaultValue="10") int size,
 			@RequestParam(value="name",required=false,defaultValue="") String name,
 			Model model) {
-				return null;
-		
+		    Pageable pageable=new PageRequest(index, size);	
+		    Page<User> page=userService.listUsersByNameLike(name, pageable);
+		    List<User> userlist=page.getContent();
+		    model.addAttribute("page", page);
+		    model.addAttribute("userlist", userlist);
+		    
+			return new ModelAndView(async==true?"users/list :: #mainContainerRepleace":"users/list", "userModel", model);
+		  
 	}
 	/**
 	 * 新增用户

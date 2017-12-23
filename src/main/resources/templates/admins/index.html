@@ -51,22 +51,22 @@
 			<!--导航开始-->
 			<ul>
 				<li class="menu-nav-item">
-					<a href="javascript:##">
+					<a style="cursor:pointer;">
 						<i class="my-icon nav-icon icon_1"></i>
 						<span>用户设置</span>
 					<i class="my-icon nav-more"></i>
 					</a>
 					
-					<ul>
+					<ul th:each="menu : ${model.list}" class="list-menu-group">
 						<li>
-							<a href="javascript:##"><span>用户管理</span></a>
+							<a class="list-menu-group-item" href="javascript:void(0)" th:title="${menu.name}"  data-th-attr="url=${menu.url}"><span th:text="${menu.name}">用户管理</span></a>
 						</li>
 						
 					</ul>
 				</li>
 				<li class="menu-nav-item">
 					
-					<a href="javascript:##">
+					<a style="cursor:pointer;">
 						<i class="my-icon nav-icon icon_2"></i>
 						<span>系统设置</span>
 					<i class="my-icon nav-more"></i>
@@ -89,7 +89,7 @@
 				</li>
 				<li class="menu-nav-item">
 					
-					<a href="javascript:##">
+					<a style="cursor:pointer;">
 						<i class="my-icon nav-icon icon_2"></i>
 						<span>系统设置</span>
 					<i class="my-icon nav-more"></i>
@@ -112,7 +112,7 @@
 				</li>
 				<li class="menu-nav-item">
 					
-					<a href="javascript:##">
+					<a style="cursor:pointer;">
 						<i class="my-icon nav-icon icon_2"></i>
 						<span>系统设置</span>
 					<i class="my-icon nav-more"></i>
@@ -141,7 +141,7 @@
 		<!--left menu end-->
 		<!-- right content start -->
 
-		<div class=" right-wrap right-wrap-margin" id="wrap">
+		<div class=" right-wrap right-wrap-margin" id="right-wrap">
 		<div class="head-card">
 		<div class="card">ewewe</div>
          <div class="card">ewewe</div>  
@@ -152,10 +152,11 @@
 		<div class="card-right">ewewe</div>
 		</div>
 		</div>
-<!--head end -->
-		<!-- right content end -->
-		<!-- javascript -->
+       <!--head end -->
+	   <!-- right content end -->
+	   <!-- javascript -->
      <script src="js/jquery-3.1.1.min.js" th:src="@{js/jquery-3.1.1.min.js}"></script>
      <script src="js/main.js" th:src="@{js/main.js}"></script>	
+     <script src="js/admin/main.js" th:src="@{js/admin/main.js}"></script>
 </body>
 </html>

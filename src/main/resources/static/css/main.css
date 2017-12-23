@@ -251,7 +251,7 @@ ul li{
 .xt-table tr{text-align:center;}
 .xt-table tr.xt-bg td{ background: #f9fafa;}
 .xt-table tr td a{ padding: 3px 5px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 0 2px;}
-.xt-table tr:hover td{ background: #fff; color: #fff;background: #30abaa}
+.xt-table tr:hover td{ background: #fff; color: #fff;background: #2A94DE}
 .xt-table tr:hover td a:hover{color: #baa01b; background: #f5e17a;}
 /*分页样式*/
 .xt-fenye{ margin: 20px; background: #fff; border: 1px solid #dcdcdc; overflow: hidden; padding: 10px 15px;}
