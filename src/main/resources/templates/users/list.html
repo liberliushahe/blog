@@ -1,9 +1,10 @@
 <div class="right-content">
 	<!-- top start -->
 	<div class="top-container">
-		<input type="text" class="int-text" />&nbsp;&nbsp;<input type="button"
-			class="btn btn-default" value="搜索" />&nbsp;&nbsp;<input type="button"
-			class="btn btn-default" value="增加用户" />
+		<input type="text" id="searchkey" class="int-text" />&nbsp;&nbsp;<a href="#" title="搜索用户"><img src="img/search.png" style="width:30px;height:30px"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+			
+			<button 
+			class="btn btn-default" data-toggle="modal" data-target="#addtip"  id="addUser">新增用户</button>
 	</div>
 	<!-- top end -->
 	<div class="xt-table" id="mainContainerRepleace">
@@ -20,15 +21,17 @@
 				<th>操作</th>
 			</tr>
 
-			<tbody th:each="user : ${userModel.userlist}">
-				<tr>
+			<tbody>
+				<tr th:each="user : ${userModel.userlist}">
 					<td th:text="${user.name}">王工</td>
 					<td th:text="${user.username}">2017.12.9</td>
 					<td th:text="${user.email}">vitae</td>
 					<td th:text="${user.name}">ERSRSF%^^^%^%</td>
 					<td th:text="${user.name}">ADMIN</td>
 					<td th:text="${user.name}">XXXXXXXXXXX@QQ.com</td>
-					<td>编辑/删除</td>
+					<td><a href="#" class="my-icon edit" title="编辑" data-toggle="modal"
+								data-target="#addtip" role="button"
+								data-th-attr="userId=${user.id}" id="editUser"></a> <a href="#" class="my-icon delete" title="删除"></a></td>
 				</tr>
 				
 			</tbody>
@@ -36,4 +39,38 @@
 		</table>
 		<div th:replace="fragments/page :: page"></div>
 	</div>
+	<!-- 模态框 -->
+	<div class="modal fade" id="addtip"  tabindex="-1" role="dialog" aria-labelledby="addtipLabel" aria-hidden="true">
+	
+		<div class="modal-dialog" style="width:350px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					用户增加/编辑
+				</h4>
+			</div>
+			<div class=" modal-body" id="userFormContainer">
+			test
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" 
+						data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" id="submitAdd">
+					提交
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+	
+	
+	
+	</div>
+	
 </div>
+	  <!-- javascript -->
+     <script src="js/jquery-3.1.1.min.js" th:src="@{js/jquery-3.1.1.min.js}"></script>
+     <script src="js/admin/main.js" th:src="@{js/admin/main.js}"></script>

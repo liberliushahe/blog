@@ -40,14 +40,14 @@ public class UserServiceTest {
 	 */
 	@Test
 	public void saveUser() {
-		User user=new User();
-		user.setEmail("XXXXXXXXX@qq.com");
-		user.setHeadimage("http://www.qq.com/head.jpg");
-		user.setName("wanggang");
-		user.setUsername("admin2");
-		user.setPassword("RRFRF&&^&&&&");
-		User addUser=userServiceImpl.saveUser(user);
-		System.out.println(addUser.toString());
+		//User user=new User();
+//		user.setEmail("XXXXXXXXX@qq.com");
+//		user.setHeadimage("http://www.qq.com/head.jpg");
+//		user.setName("wanggang");
+//		user.setUsername("admin2");
+//		user.setPassword("RRFRF&&^&&&&");
+//		User addUser=userServiceImpl.saveUser(user);
+//		System.out.println(addUser.toString());
 	}
 	/**
 	 * 根据主键删除用户

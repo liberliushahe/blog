@@ -57,6 +57,16 @@ public class UserController {
 		  
 	}
 	/**
+	 * 获取新增用户 form 表单页面
+	 * @param user
+	 * @return
+	 */
+	@GetMapping("/add")
+	public ModelAndView createForm(Model model) {
+		model.addAttribute("user", new User(null, null, null, null));
+		return new ModelAndView("users/add", "userModel", model);
+	}
+	/**
 	 * 新增用户
 	 * @param user
 	 * @param authorityId
@@ -85,8 +95,9 @@ public class UserController {
 	 * @return
 	 */
 	@GetMapping(value="edit/{id}")
-    public ModelAndView edit(@PathVariable("id") int id,Model model){
-	  
+    public ModelAndView edit(@PathVariable("id") long id,Model model){
+		User user=userService.getUserById(id);
+		model.addAttribute("user",user);
 		return new ModelAndView("users/edit", "userModel", model);
 	  
     }

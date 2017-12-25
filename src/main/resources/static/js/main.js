@@ -23,15 +23,15 @@ $(function() {
 
 	//缩略菜单显示
 	$("#mini").on("click", function() {
-		$("#wrap").removeClass("right-wrap-margin");
-		$("#wrap").addClass("right-wrap-click");		  
+		$("#right-wrap").removeClass("right-wrap-margin");
+		$("#right-wrap").addClass("right-wrap-click");		  
 		if(!$(".menu-nav").hasClass("menu-nav-mini")) {
 			$(".menu-nav-item .nav-show").removeClass("nav-show");
 			$(".menu-nav-item ").children("ul").removeAttr("style");
 			$(".menu-nav").addClass("menu-nav-mini");
 		} else {
-			$("#wrap").addClass("right-wrap-margin");
-			  $("#wrap").removeClass("right-wrap-click");
+			$("#right-wrap").addClass("right-wrap-margin");
+			  $("#right-wrap").removeClass("right-wrap-click");
 			$(".menu-nav").removeClass("menu-nav-mini");
 		}
 

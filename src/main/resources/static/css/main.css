@@ -2,7 +2,15 @@
 	margin: 0;
 	padding: 0;
 }
-
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */ {
+  margin: 0;
+  padding: 0;
+}
 a{
 	text-decoration: none;
 }
@@ -136,6 +144,7 @@ ul li{
 *管理员样式开始
 **/
 /*head start*/
+
 .navbar-default {
 	background-color: #2A94DE;
 	border-radius:0px;
@@ -218,12 +227,12 @@ ul li{
 .menu-nav-item>a:before{content:"";position: absolute;left: 0px;width: 2px;height: 45px;background:#34A0CE;opacity: 0;transition: all .3s;}
 .menu-nav .nav-icon{font-size: 20px;position: absolute;margin-left: -1px;}
 /* 此处修改导航图标 可自定义iconfont 替换*/
-.icon_1::after{content: "\e62b";}
-.icon_2::after{content: "\e669";}
+.icon_1::after{content: "\e624";}
+.icon_2::after{content: "\e62a";}
 .icon_3::after{content: "\e61d";}
 .nav-more{float: right;font-size: 12px;margin-right: 20px;transition: transform .3s;}
 /* 此处为导航右侧箭头 如果自定义iconfont 也需要替换*/
-.nav-more::after{content: "\e621";}
+.nav-more::after{content: "\e623";}
 /*3D转换*/
 .nav-show .nav-more{transform:rotate(90deg);}
 .nav-show,.menu-nav-item>a:hover{color: #FFF;background:rgba(0,0,0,.1);}
@@ -291,4 +300,27 @@ ul li{
 	height:230px;
 	margin:20px 10px;
 	background-color:gray;
+}
+/*用户操作界面样式*/
+.search::after{content: "\e6df";}
+.edit::after{content: "\e602";}
+.delete::after{content: "\e600";}
+/*编辑和增加容器样式*/
+.userFormContainer{
+	display:none;
+	padding:5px;
+	position:relative;
+	margin-top:-200px;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:5px;
+	z-index:999;
+	background-color:gray;
+	width:330px;
+	height:370px;
+	text-align:center;
+	filter:alpha(Opacity=80);-moz-opacity:0.9;opacity: 0.9;
+}
+.input-group{
+	width:310px;
 }

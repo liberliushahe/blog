@@ -1,12 +1,19 @@
 package com.work.blog.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -50,6 +57,39 @@ public class User implements Serializable{
 	@Column(length=200)
     private String headimage;
 	
+	@Column(nullable = false)
+	@org.hibernate.annotations.CreationTimestamp
+	private Timestamp registerTime;
+	
+	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+	@JoinTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn (name = "authority_id", referencedColumnName = "id"))
+	private List<Authority> authorities;
+
+	protected User() { // JPA 的规范要求无参构造函数；设为 protected 防止直接使用
+	}
+
+	public User(String name, String email,String username,String password) {
+		this.name = name;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+	}
+	
+	public List<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	public Timestamp getRegisterTime() {
+		return registerTime;
+	}
+	public void setRegisterTime(Timestamp registerTime) {
+		this.registerTime = registerTime;
+	}
 	public long getId() {
 		return id;
 	}
