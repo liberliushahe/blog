@@ -14,11 +14,11 @@ import com.work.blog.domain.User;
  * @creation 2017年12月13日
  */
 public interface BlogService {
-	/**
-	 * 保存Blog
-	 * @param EsBlog
-	 * @return
-	 */
+    /**
+     * 保存Blog
+     * @param blog
+     * @return
+     */
 	Blog saveBlog(Blog blog);
 	
 	/**

@@ -314,5 +314,5 @@ ul li{
 	filter:alpha(Opacity=80);-moz-opacity:0.9;opacity: 0.9;
 }
 .input-group-admin{
-	width:310px;
+	width:100%;
 }

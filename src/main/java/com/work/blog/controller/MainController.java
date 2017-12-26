@@ -26,7 +26,9 @@ public class MainController {
 	private UserService userService;
 	@Autowired
 	private AuthorityService authorityService;
-	//设置注册用户默认角色
+	/**
+	 * 设置注册用户默认角色
+	 */
 	private static final Long ROLE_USER_AUTHORITY_ID = 2L;
 	/**
 	 * 返回访问根节点返回主页

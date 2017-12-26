@@ -7,6 +7,12 @@ import org.springframework.stereotype.Service;
 import com.work.blog.domain.Blog;
 import com.work.blog.domain.Catalog;
 import com.work.blog.domain.User;
+/**
+ * 用户博客接口实现类
+ * @author jijiuxue
+ * <a href="https://github.com/liberliushahe/blog"></a>
+ * @creation 2017年12月13日
+ */
 @Service
 public class BlogServiceImpl implements BlogService {
 

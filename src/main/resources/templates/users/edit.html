@@ -1,27 +1,38 @@
 <form action="/user" method="post" th:object="${userModel.user}" id="userForm">
-    <input type="hidden" name="id" th:value="*{id}"/>
-    <input type="hidden" name="registerTime" th:value="*{registerTime}"/>
+	<input type="hidden" name="id" th:value="*{id}" /> 
+	<input type="hidden" name="registerTime" th:value="*{registerTime}" />
 	<div class="input-group input-group-admin">
-		<span class="input-group-addon">姓&nbsp;&nbsp;&nbsp;名</span>	<input type="text" class="form-control" id="name" th:value="*{name}" name="name" />
+		<span class="input-group-addon">姓&nbsp;&nbsp;&nbsp;名</span> <input
+			type="text" class="form-control" id="name" th:value="*{name}"
+			name="name" />
 	</div>
 	<br />
 	<div class="input-group input-group-admin">
-		<span class="input-group-addon">用户名</span>	<input type="text" class="form-control" id="username" th:value="*{username}" name="username"  />
+		<span class="input-group-addon">用户名</span> <input type="text"
+			class="form-control" id="username" th:value="*{username}"
+			name="username" />
 	</div>
 	<br />
-		<div class="input-group input-group-admin">
-		<span class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</span>	<input type="text" class="form-control" th:value="*{email}" id="email" name="email"  />
+	<div class="input-group input-group-admin">
+		<span class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</span> <input
+			type="text" class="form-control" th:value="*{email}" id="email"
+			name="email" />
 	</div>
 	<br />
-    <div class="input-group input-group-admin">
-    	<span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>	<input type="text" class="form-control" th:value="*{password}" id="password" name="password"  />	
-    </div>
-    <br />
-    <div class="input-group input-group-admin">
-    	<span class="input-group-addon">权&nbsp;&nbsp;&nbsp;限</span>	<select class="form-control" id="authorityId" name="authorityId" >
-    		<option value="1" data-th-selected="${#strings.contains(userModel.user.authorities[0],'ROLE_ADMIN')}">管理员</option>
-    		<option value="2" data-th-selected="${#strings.contains(userModel.user.authorities[0],'ROLE_USER')}">普通用户</option>
-    	</select>	
-    </div>
-    <br/> 
+	<div class="input-group input-group-admin">
+		<span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span> <input
+			type="text" class="form-control" th:value="*{password}" id="password"
+			name="password" />
+	</div>
+	<br />
+	<div class="input-group input-group-admin">
+		<span class="input-group-addon">权&nbsp;&nbsp;&nbsp;限</span> <select
+			class="form-control" id="authorityId" name="authorityId">
+			<option value="1"
+				data-th-selected="${#strings.contains(userModel.user.authorities[0],'ROLE_ADMIN')}">管理员</option>
+			<option value="2"
+				data-th-selected="${#strings.contains(userModel.user.authorities[0],'ROLE_USER')}">普通用户</option>
+		</select>
+	</div>
+	<br />
 </form>

@@ -61,7 +61,6 @@ public class UserController {
 		    List<User> userlist=page.getContent();
 		    model.addAttribute("page", page);
 		    model.addAttribute("userlist", userlist);
-		    
 			return new ModelAndView(async==true?"users/list :: #mainContainerRepleace":"users/list", "userModel", model);
 		  
 	}
@@ -121,6 +120,7 @@ public class UserController {
 	@GetMapping(value="edit/{id}")
     public ModelAndView edit(@PathVariable("id") long id,Model model){
 		User user=userService.getUserById(id);
+		System.out.println(user.toString());
 		model.addAttribute("user",user);
 		return new ModelAndView("users/edit", "userModel", model);
 	  
