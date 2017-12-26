@@ -1,13 +1,15 @@
 package com.work.blog.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.validation.ConstraintViolationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +17,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.work.blog.domain.Authority;
 import com.work.blog.domain.User;
+import com.work.blog.service.AuthorityService;
 import com.work.blog.service.UserService;
+import com.work.blog.util.ConstraintViolationExceptionHandler;
 import com.work.blog.vo.Response;
 
 /**
@@ -27,11 +33,14 @@ import com.work.blog.vo.Response;
  * <a href="https://github.com/liberliushahe/blog"></a>
  * @creation 2017年12月13日
  */
-@Controller
+@RestController
 @RequestMapping("/users")
 public class UserController {
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private AuthorityService authorityService;
 	/**
 	 * 获取用户列表
 	 * @param async
@@ -73,8 +82,19 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping
-	public ResponseEntity<Response> create(User user, Long authorityId) {
-		return ResponseEntity.ok().body(new Response(true,"增加成功",user));
+	public ResponseEntity<Response> create(User user, long authorityId) {
+		List<Authority> listAuthority=new ArrayList<Authority>();
+		Authority authority=authorityService.getAuthorityById(authorityId);
+		listAuthority.add(authority);
+		user.setAuthorities(listAuthority);
+		User newuser=null;
+		try {
+			userService.saveUser(user);
+		}  catch (ConstraintViolationException e)  {
+			return ResponseEntity.ok().body(new Response(false, ConstraintViolationExceptionHandler.getMessage(e)));
+		}
+	
+		return ResponseEntity.ok().body(new Response(true,"操作成功",newuser));
 	}
 	/**
 	 * 删除用户
@@ -83,9 +103,13 @@ public class UserController {
 	 * @return
 	 */
 	@DeleteMapping(value="del/{id}")
-    public ResponseEntity<Response> delete(@PathVariable("id") int id,Model model){
-	  
-	return ResponseEntity.ok().body(new Response(true,"成功删除用户"));
+    public ResponseEntity<Response> delete(@PathVariable("id") long id,Model model){
+		try{
+	       userService.removeUser(id);
+	       }catch(Exception e){
+			return ResponseEntity.ok().body(new Response(false,e.getMessage()));
+		}
+	        return ResponseEntity.ok().body(new Response(true,"成功删除用户"));
 	  
     }
 	/**

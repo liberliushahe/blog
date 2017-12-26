@@ -24,14 +24,14 @@
 			<tbody>
 				<tr th:each="user : ${userModel.userlist}">
 					<td th:text="${user.name}">王工</td>
-					<td th:text="${user.username}">2017.12.9</td>
-					<td th:text="${user.email}">vitae</td>
-					<td th:text="${user.name}">ERSRSF%^^^%^%</td>
-					<td th:text="${user.name}">ADMIN</td>
-					<td th:text="${user.name}">XXXXXXXXXXX@QQ.com</td>
-					<td><a href="#" class="my-icon edit" title="编辑" data-toggle="modal"
+					<td th:text="${user.registerTime}">2017.12.9</td>
+					<td th:text="${user.username}">vitae</td>
+					<td th:text="${user.password}">ERSRSF%^^^%^%</td>
+					<td th:text="${user.authorities}">ADMIN</td>
+					<td th:text="${user.email}">XXXXXXXXXXX@QQ.com</td>
+					<td><a href="#" class="my-icon edit editUser" title="编辑" data-toggle="modal"
 								data-target="#addtip" role="button"
-								data-th-attr="userId=${user.id}" id="editUser"></a> <a href="#" class="my-icon delete" title="删除"></a></td>
+								data-th-attr="userId=${user.id}"></a> <a href="#" class="my-icon delete deleteUser" data-th-attr="userId=${user.id}" title="删除"></a></td>
 				</tr>
 				
 			</tbody>
@@ -42,24 +42,24 @@
 	<!-- 模态框 -->
 	<div class="modal fade" id="addtip"  tabindex="-1" role="dialog" aria-labelledby="addtipLabel" aria-hidden="true">
 	
-		<div class="modal-dialog" style="width:350px;">
+		<div class="modal-dialog" style="width:28%;">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" 
 						aria-hidden="true">×
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					用户增加/编辑
+					用户增加&nbsp;/&nbsp;编辑
 				</h4>
 			</div>
 			<div class=" modal-body" id="userFormContainer">
-			test
+			
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" 
 						data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal" id="submitAdd">
+				<button type="button" class="btn btn-primary" data-dismiss="modal" id="submitEdit">
 					提交
 				</button>
 			</div>

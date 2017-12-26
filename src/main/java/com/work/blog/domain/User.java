@@ -76,6 +76,7 @@ public class User implements Serializable{
 		this.password = password;
 	}
 	
+	
 	public List<Authority> getAuthorities() {
 		return authorities;
 	}

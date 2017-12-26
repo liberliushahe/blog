@@ -1,21 +1,22 @@
-<form action="/user" method="post">
-	<div class="input-group">
-		<span class="input-group-addon">姓&nbsp;&nbsp;&nbsp;名</span>	<input type="text" class="form-control" id="name" name="name" />
+<form action="/user" method="post" th:object="${userModel.user}" id="userForm">
+    <input type="hidden" name="id" th:value="*{id}"/>
+	<div class="input-group input-group-admin">
+		<span class="input-group-addon">姓&nbsp;&nbsp;&nbsp;名</span>	<input type="text" class="form-control" id="name" name="name" maxlength="50" placeholder="请输入账号，至少3个字符，至多20个" />
 	</div>
 	<br />
-	<div class="input-group">
-		<span class="input-group-addon">用户名</span>	<input type="text" class="form-control" id="username" name="username"  />
+	<div class="input-group input-group-admin">
+		<span class="input-group-addon">用户名</span>	<input type="text" class="form-control" id="username" name="username" maxlength="50" placeholder="请输入账号，至少3个字符，至多20个" />
 	</div>
 	<br />
-		<div class="input-group">
-		<span class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</span>	<input type="text" class="form-control" id="email" name="email"  />
+		<div class="input-group input-group-admin">
+		<span class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</span>	<input type="text" class="form-control" id="email" name="email" maxlength="50" placeholder="请输入邮箱" />
 	</div>
 	<br />
-    <div class="input-group">
-    	<span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>	<input type="text" class="form-control" id="password" name="password"  />	
+    <div class="input-group input-group-admin">
+    	<span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>	<input type="text" class="form-control" id="password" name="password" maxlength="30" placeholder="请输入密码，字母或特殊符号和数字结合" />	
     </div>
     <br />
-    <div class="input-group">
+    <div class="input-group input-group-admin">
     	<span class="input-group-addon">角&nbsp;&nbsp;&nbsp;色</span>	<select class="form-control" id="authorityId" name="authorityId" >
     		<option value="1">管理员</option>
     		<option value="2">普通用户</option>

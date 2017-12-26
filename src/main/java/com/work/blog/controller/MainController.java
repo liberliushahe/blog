@@ -1,11 +1,17 @@
 package com.work.blog.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.work.blog.domain.Authority;
 import com.work.blog.domain.User;
+import com.work.blog.service.AuthorityService;
 import com.work.blog.service.UserService;
 
 /**
@@ -18,6 +24,10 @@ import com.work.blog.service.UserService;
 public class MainController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private AuthorityService authorityService;
+	//设置注册用户默认角色
+	private static final Long ROLE_USER_AUTHORITY_ID = 2L;
 	/**
 	 * 返回访问根节点返回主页
 	 * @return
@@ -66,6 +76,10 @@ public class MainController {
 	 */
 	@PostMapping("/register")
 	public String userRegister(User user){
+		List<Authority> list=new ArrayList<Authority>();
+		Authority authority=authorityService.getAuthorityById(ROLE_USER_AUTHORITY_ID);
+		list.add(authority);
+		user.setAuthorities(list);
 		userService.saveUser(user);
 		return "redirect:/login";
 	}

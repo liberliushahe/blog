@@ -38,6 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.exceptionHandling().accessDeniedPage("/403");
 		// 禁用 H2 控制台的 CSRF 防护
 		http.csrf().ignoringAntMatchers("/console/**");
+		//由于默认启用了csrf防护导致post提交一直报405错误，暂时禁用
+		http.csrf().disable();
 		// 允许来自同一来源的H2 控制台的请求
 		http.headers().frameOptions().sameOrigin();
 
