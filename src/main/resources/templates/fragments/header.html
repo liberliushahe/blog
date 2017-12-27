@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" data-th-fragment="header">
 	<head>
 		<meta charset="utf-8" />
+		<!-- CSRF -->
+	    <meta name="_csrf" th:content="${_csrf.token}"/>
+	    <!-- default header name is X-CSRF-TOKEN -->
+	    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 		<title>博客首页</title>   
 		<!-- 系统样式 -->
 		<link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
@@ -17,8 +22,9 @@
 	<body>
 		<!--描述：容器开始-->
 			
-<!--描述：头部导航开始-->			
-<nav class="navbar navbar-default navpadding"  role="navigation">
+<!--描述：头部导航开始-->	
+
+<nav class="navbar navbar-default"  role="navigation" style="padding-left:8%;padding-right:8%">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">博客标识</a>
@@ -39,13 +45,33 @@
 			</div>
 			<button type="submit" class="btn btn-default">搜索</button>
 		</form>
-		<div class="navbar-form navbar-right">
-			<a class="btn btn-default btn-login" href="/login">登录</a>
-			<a class="btn btn-default btn-register" href="/register">注册</a>
-			<a class="btn btn-default btn-write" href="#"><img src="img/write.png" />&nbsp;写博客</a>
+	<div sec:authorize="isAuthenticated()"  class="navbar-form navbar-right">
+		<div class="btn-group">
+	<button type="button" class="btn btn-primary" sec:authentication="name"></button>
+	<button type="button" class="btn btn-primary dropdown-toggle" 
+			data-toggle="dropdown">
+		<span class="caret"></span>
+		<span class="sr-only">切换下拉菜单</span>
+	</button>
+	<ul class="dropdown-menu" role="menu" style="text-align:center">
+		<li><a href="#">个人中心</a></li>
+		<li class="divider"></li>
+		<li><a href="#">个人设置</a></li>
+		<li class="divider"></li>
+		<li><a href="/logout" th:href="@{/logout}">退出登录</a></li>
+	</ul>
+</div>
+			<a class="btn btn-default btn-write" href="#"><img src="img/write.png" />&nbsp;写博客</a>			
 		</div>
+	<div sec:authorize="isAnonymous()" class="navbar-form navbar-right" >
+		<a class="btn btn-default btn-login" href="/login" sec:authorize="isAnonymous()" >登录</a>
+			<a class="btn btn-default btn-register" href="/register">注册</a>
+		
+		
+	</div>	
 	</div>
 </nav>
+
 <!--描述：头部导航结束-->				
 	</body>
 </html>

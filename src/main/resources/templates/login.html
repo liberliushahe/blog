@@ -11,7 +11,7 @@
 <div class="col-md-6">
 
  	<div id="login" class="form-group" role="form">
-<form action="/login" method="post">
+<form th:action="@{/login}" th:method="POST">
 	<header>
 	<h4>账号登录</h4>
 	</header>
@@ -21,11 +21,15 @@
 	</div>
 	<br />
     <div class="input-group">
-    	<span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>	<input type="text" name="password" id="password" class="form-control" />	
+    	<span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>	<input type="password" name="password" id="password" class="form-control" />	
     </div>
     <br/>
+        <div class="input-group" th:if="${loginError}">
+        <p class="error" th:text="${errorMsg}">error</p>
+    </div>
+
      <div>
-    	<div class="remember-me"><input type="checkbox" /><span>记住我</span> </div>
+    	<div class="remember-me"><input id="remember-me" name="remember-me" type="checkbox" /><span>记住我</span> </div>
     	<div class="forget-pass"><span ><a href="#" >忘记密码?</a></span> </div>   	
     </div>
     <br/>

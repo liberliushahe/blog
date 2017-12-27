@@ -1,15 +1,16 @@
-<div class="right-content">
+
 	<!-- top start -->
 	<div class="top-container">
-		<input type="text" id="searchkey" class="int-text" />&nbsp;&nbsp;<a href="#" title="搜索用户"><img src="img/search.png" style="width:30px;height:30px" id="searchNameBtn"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" id="searchkey" class="int-text" />&nbsp;&nbsp;<img src="img/search.png" style="width:30px;height:30px;cursor:pointer;" id="searchNameBtn"/>&nbsp;&nbsp;&nbsp;&nbsp;
 			
 			<button 
 			class="btn btn-default" data-toggle="modal" data-target="#addtip"  id="addUser">新增用户</button>
 	</div>
 	<!-- top end -->
-	<div class="xt-table" id="mainContainerRepleace">
+	<div id="mainContainerRepleace">
+	<div class="xt-table" >
 		<table cellpadding="0" cellspacing="0" border="0" bgcolor="#dcdcdc"
-			width="100%" id="tb">
+			width="100%" id="tb" style="table-layout: fixed;">
 
 			<tr>
 				<th>用户姓名</th>
@@ -26,7 +27,7 @@
 					<td th:text="${user.name}">王工</td>
 					<td th:text="${user.registerTime}">2017.12.9</td>
 					<td th:text="${user.username}">vitae</td>
-					<td th:text="${user.password}">ERSRSF%^^^%^%</td>
+					<td style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" th:text="${user.password}" th:title="${user.password}"></td>
 					<td th:text="${user.authorities}">ADMIN</td>
 					<td th:text="${user.email}">XXXXXXXXXXX@QQ.com</td>
 					<td><a href="#" class="my-icon edit editUser" title="编辑" data-toggle="modal"
@@ -38,6 +39,7 @@
 
 		</table>
 		<div th:replace="fragments/page :: page"></div>
+	</div>
 	</div>
 	<!-- 模态框 -->
 	<div class="modal fade" id="addtip"  tabindex="-1" role="dialog" aria-labelledby="addtipLabel" aria-hidden="true">
@@ -70,7 +72,6 @@
 	
 	</div>
 	
-</div>
 	  <!-- javascript -->
      <script src="js/jquery-3.1.1.min.js" th:src="@{js/jquery-3.1.1.min.js}"></script>
      <script src="js/admin/main.js" th:src="@{js/admin/main.js}"></script>

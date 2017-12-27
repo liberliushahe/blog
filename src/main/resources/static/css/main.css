@@ -1,3 +1,6 @@
+/*
+*初始化样式
+*/
 *{
 	margin: 0;
 	padding: 0;
@@ -18,11 +21,7 @@ ul li{
 /**
  * 头部样式
  */
-.navpadding{
-	padding-left: 10%;
-	padding-right: 6%;
-	
-}
+
 .btn-login{
 	background-color: darkgray;
 }
@@ -43,16 +42,16 @@ ul li{
  */
 .left-card{
 	margin-bottom: 15px;background-color: #fff;padding: 10px;width: 100%;  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
+          transition: all 0.2s ease;border:.0625rem solid #e5e5e5;border-radius:5px;
 }
 .footer-detail{
 	
 	font-style: italic;
 	font-size: 10px;
 }
-.footer-detail img{
-	width: 20px;
-	height: 20px;
+.left-card img{
+	width: 35px;
+	height: 35px;
 	border-radius: 50%;
 }
 /**
@@ -60,7 +59,7 @@ ul li{
  */
 .right-card{
 	float: right;
-	margin-bottom: 15px;background-color: #fff;padding: 4px;width: 100%;
+	margin-bottom: 15px;background-color: #fff;padding: 4px;width: 100%;border:.0625rem solid #e5e5e5;border-radius:5px;
 }
 .hot-user{
 	padding: 6px;
@@ -131,6 +130,9 @@ ul li{
 }
 .btn-login-button{
 	width: 150px;
+}
+.error{
+	color:red;
 }
 /**
 *管理员样式开始

@@ -2,6 +2,9 @@ buildscript {
 	ext {
 		springBootVersion = '1.5.9.RELEASE'
 	}
+	// 自定义  Thymeleaf 和 Thymeleaf Layout Dialect 的版本
+	ext['thymeleaf.version'] = '3.0.3.RELEASE'
+	ext['thymeleaf-layout-dialect.version'] = '2.2.0'
 	repositories {
 		 maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         mavenLocal()
@@ -31,6 +34,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	// 添加  Spring Security 依赖
 	compile('org.springframework.boot:spring-boot-starter-security')
+	// 添加   Thymeleaf Spring Security 依赖，与 Thymeleaf 版本一致都是 3.x
+	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE')
 	// 添加 Spring Data JPA 的依赖
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	// 添加 MySQL连接驱动 的依赖

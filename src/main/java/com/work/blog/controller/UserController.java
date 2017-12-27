@@ -10,6 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +38,7 @@ import com.work.blog.vo.Response;
  */
 @RestController
 @RequestMapping("/users")
+@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -87,6 +91,22 @@ public class UserController {
 		listAuthority.add(authority);
 		user.setAuthorities(listAuthority);
 		User newuser=null;
+		System.out.println("编辑用户");
+		if(user.getId()==0){
+			user.setEncodePassword(user.getPassword());
+		}else{
+			//判断用户是否修改了密码,如果修改了密码则相应的修改
+			User modifyUser=userService.getUserById(user.getId());
+			String oldPassword=modifyUser.getPassword();
+			PasswordEncoder encoder=new BCryptPasswordEncoder();
+			String newPassword=encoder.encode(user.getPassword());
+			boolean isMatch=encoder.matches(oldPassword, newPassword);
+			if(isMatch){
+				user.setPassword(user.getPassword());
+			}else{
+				user.setEncodePassword(user.getPassword());
+			}
+		}
 		try {
 			userService.saveUser(user);
 		}  catch (ConstraintViolationException e)  {

@@ -186,6 +186,5 @@ public class User implements UserDetails,Serializable{
 		// TODO Auto-generated method stub
 		return true;
 	}
-	
-    
+ 
 }

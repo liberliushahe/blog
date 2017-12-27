@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>  
+<!-- CSRF -->
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 <title>后台管理</title>     
 <!-- 系统样式 -->
 <link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
@@ -11,7 +17,6 @@
 <link rel="stylesheet" href="css/main.css" th:href="@{css/main.css}"/> 
 <link rel="stylesheet" href="font/iconfont.css" th:href="@{font/iconfont.css}" />
 </head>
-
 <body>
 		<!--head start -->
 
@@ -35,7 +40,7 @@
 				<a>邮件</a>
 			</li>
 			<li>
-				<a>weicome jack</a>
+				<a>欢迎你管理员: <span sec:authentication="name"></span></a>
 			</li>
 
 		</ul>

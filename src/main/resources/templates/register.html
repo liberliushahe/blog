@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
 <head th:replace="fragments/header :: header">
 </head>
 <body>
@@ -10,7 +11,7 @@
 	<div class="col-md-3 col-sm-1"></div>
 <div class="col-md-6 col-sm-10">
  	<div id="login" class="form-group" role="form">
-<form action="/register" method="post">
+<form th:action="@{/register}" th:method="post">
 	<header>
 	<h4>账号注册</h4>
 	</header>
@@ -28,7 +29,7 @@
 	</div>
 	<br />
     <div class="input-group">
-    	<span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>	<input type="text" class="form-control" id="password" name="password" />	
+    	<span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>	<input type="password" class="form-control" id="password" name="password" />	
     </div>
     <br />
     	<div class="input-group form-button">

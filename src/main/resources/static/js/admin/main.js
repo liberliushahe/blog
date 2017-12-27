@@ -1,4 +1,5 @@
 $(function() {
+	var pageSize;
 	// 管理员前端菜单js控制
 	$(".list-menu-group .list-menu-group-item").click(function() {
 		var url = $(this).attr("url");
@@ -13,7 +14,7 @@ $(function() {
 		});
 	});
 	// 根据参数获取当前数据
-	var pageSize;
+	
 	function getUserByName(index, size) {
 		$.ajax({
 			url : "/users",
@@ -21,7 +22,7 @@ $(function() {
 				"async" : true,
 				"pageIndex" : index,
 				"pageSize" : size,
-				"name" : $("#searchName").val()
+				"name" : $("#searchkey").val()
 			},
 			success : function(data) {
 				$("#mainContainerRepleace").html(data);
@@ -44,7 +45,7 @@ $(function() {
 		});
 	})
 	// 用户编辑
-	$(".editUser").click(function() {
+	$("#right-wrap").on("click",".editUser",function(){
 		$.ajax({
 			url : "/users/edit/" + $(this).attr("userId"),
 			success : function(data) {
@@ -57,16 +58,21 @@ $(function() {
 	});
 	// 提交表单数据
 	$("#submitEdit").click(function() {
+		// 获取 CSRF Token 
+		var csrfToken = $("meta[name='_csrf']").attr("content");
+		var csrfHeader = $("meta[name='_csrf_header']").attr("content");
 		$.ajax({
 			url : "/users",
 			type : "POST",
+			beforeSend: function(request) {
+                request.setRequestHeader(csrfHeader, csrfToken); // 添加  CSRF Token 
+            },
 			data : $("#userForm").serialize(),
 			success : function(data) {
 				$('#userForm')
 				.val('')
 				.removeAttr('selected');
 				if (data.success) {
-					alert(23)
 					getUserByName(0, pageSize);
 				} else {
 					toastr.error(data.message);
@@ -81,10 +87,17 @@ $(function() {
 	});
 	// 删除用户
 	//修改这种方式
-	$(".deleteUser").click(function() {
+	
+	$("#right-wrap").on("click",".deleteUser",function(){
+		// 获取 CSRF Token 
+		var csrfToken = $("meta[name='_csrf']").attr("content");
+		var csrfHeader = $("meta[name='_csrf_header']").attr("content");
 		$.ajax({
 			url : "/users/del/" + $(this).attr("userId"),
 			type : "DELETE",
+			beforeSend:function(request){
+				request.setRequestHeader(csrfToken,csrfHeader)
+			},
 			success : function() {
 				getUserByName(0, pageSize);
 			},
@@ -95,6 +108,6 @@ $(function() {
 	})
 	// 搜索
 	$("#searchNameBtn").click(function() {
-		getUersByName(0, pageSize);
+		getUserByName(0, pageSize);
 	});
 })

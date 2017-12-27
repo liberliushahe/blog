@@ -36,7 +36,7 @@ public class MainController {
 	 */
 	@GetMapping("/")
 	public String root(){
-		return "index";
+		return "redirect:/index";
 	}
 	/**
 	 * 访问首页返回主页

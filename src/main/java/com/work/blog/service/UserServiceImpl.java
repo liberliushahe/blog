@@ -8,6 +8,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import com.work.blog.domain.User;
 import com.work.blog.repository.UserRepository;
@@ -19,7 +22,7 @@ import com.work.blog.repository.UserRepository;
  * @creation 2017年12月13日
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService,UserDetailsService {
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -70,6 +73,11 @@ public class UserServiceImpl implements UserService {
 	public List<User> listUsersByUsernames(Collection<String> usernames) {
 		// TODO Auto-generated method stub
 		return userRepository.findByUsernameIn(usernames);
+	}
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return userRepository.findByUsername(username);
 	}
 
 }
