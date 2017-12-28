@@ -1,15 +1,14 @@
 package com.work.blog.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.work.blog.domain.User;
 
 /**
  * 用户主页控制器类
@@ -19,7 +18,10 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @since 1.0.0
  */
 @Controller
+@RequestMapping("/user")
 public class UserSpaceController {
+	@Autowired
+	private UserDetailsService userDetailsService;
 	/**
 	 * 获取用户博客
 	 * @param username
@@ -28,9 +30,11 @@ public class UserSpaceController {
 	 */
 	@GetMapping("{username}")
 	public String userSpace(@PathVariable(value="username") String username,Model model){
-		
-		return null;
+	User user=(User)userDetailsService.loadUserByUsername(username);
+	model.addAttribute("user", user);
+		return "/userspace/user";
 	}
+	
 	/**
 	 * 获取用户的某一篇博客
 	 * @param username
@@ -42,13 +46,5 @@ public class UserSpaceController {
 	public String getBlogById(@PathVariable("username") String username,@PathVariable("id") Long id, Model model) {
 		return null;
 	}
-	@GetMapping("/logout")  
-	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {  
-	    Authentication auth = SecurityContextHolder.getContext().getAuthentication(); 
-	    System.out.println("注销用户");
-	    if (auth != null){      
-	        new SecurityContextLogoutHandler().logout(request, response, auth);  
-	    }  
-	    return "redirect:/index?success"; 
-	}  
+	
 }

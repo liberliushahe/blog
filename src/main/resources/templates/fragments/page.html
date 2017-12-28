@@ -4,15 +4,21 @@
 <meta charset="UTF-8"/>
 </head>
 <body>
- <div class="xt-fenye" data-th-fragment="page">
-        <div class="xt-fenye-left">当前第 1页,每页10条，共 20条记录</div>
+ <nav data-th-fragment="page" data-th-if="${page.totalPages gt 0}" data-th-object="${page}">
+<div class="xt-fenye"  data-th-fragment="page">
+        <div class="xt-fenye-left"  data-th-object="${page}">当前第 1页,每页10条，共[[${page.totalElements}]]条记录</div>
         <div class="xt-fenye-right">
         <a >首页</a> <a>上一页</a>
         <a>下一页</a> <a>尾页</a>
              <input type="text" name="text" id="page"/>
            <a href="" class="xt-link" id="skip" onclick="getPage()">跳转</a>
+           
         </div>
-    </div>
+        
+    </div>	
+ 
+ 
+</nav>
 </body>
 </html>  
    

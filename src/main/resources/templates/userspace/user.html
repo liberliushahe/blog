@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/header :: header">
+</head>
+
+<body>
+<!--描述：容器开始-->
+<div class="container">
+<div class="row">
+<!--描述：左侧内容开始-->
+<div class="col-md-3 col-sm-12">
+	<aside>
+		<div class="user-info">
+			<img src="../img/head.jpg" />	
+			<br />
+			<div >
+				<span>admin</span><br />
+				<a href="#">关注</a> &nbsp;&nbsp;<a class="display-1" href="#">发私信</a>
+			</div>
+		</div>
+		<br />
+	<div class="user-catalog">
+		<div class="add-catalog">
+				<button>添加分类</button>
+		</div>
+	
+		<ul class="list-group">
+		<li class="list-group-item"><a href="">分类1</a></li>
+		<li class="list-group-item"><a href="">分类1</a></li>
+		<li class="list-group-item"><a href="">分类1</a></li>
+		<li class="list-group-item"><a href="">分类1</a></li>
+		<li class="list-group-item"><a href="">分类1</a></li>
+		<li class="list-group-item"><a href="">分类1</a></li>
+		<li class="list-group-item"><a href="">分类1</a></li>										
+		</ul>
+		
+	</div>
+	</aside>
+</div>
+<!--描述：左侧内容结束-->		
+<!--描述：右侧内容开始-->		
+<div class="col-md-9 col-sm-12">
+	<aside>
+		<!--
+        	描述：头部tab
+        -->
+        <header>
+        	<ul class="nav nav-tabs">
+        		<li><a href="#">最新</a></li>
+        		<li><a href="#">最热</a></li>
+
+        		
+        	</ul>
+        	
+        </header>
+        <br />
+		<article class="left-card">
+		<header>
+			<h3><a href="#">测试标题测试标题测试标题</a></h3>
+		</header>
+		<div>
+			<p>博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容</p>
+		</div>
+		<footer class="footer-detail">
+			
+		攀登者发表&nbsp;&nbsp;时间<time datetime="2017-12-13">2017年12月13日</time>
+		&nbsp;阅读量(1000+)
+		&nbsp;评论量(2000)
+		&nbsp;点赞(1000)
+		</footer>
+	</article>
+	<article class="left-card">
+		<header>
+			<h3><a href="#">测试标题测试标题测试标题</a></h3>
+		</header>
+		<div>
+			<p>博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容</p>
+		</div>
+		<footer class="footer-detail">
+			
+		攀登者发表&nbsp;&nbsp;时间<time datetime="2017-12-13">2017年12月13日</time>
+		&nbsp;阅读量(1000+)
+		&nbsp;评论量(2000)
+		&nbsp;点赞(1000)
+		</footer>
+	</article>
+	<article class="left-card">
+		<header>
+			<h3><a href="#">测试标题测试标题测试标题</a></h3>
+		</header>
+		<div>
+			<p>博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容</p>
+		</div>
+		<footer class="footer-detail">
+			
+		攀登者发表&nbsp;&nbsp;时间<time datetime="2017-12-13">2017年12月13日</time>
+		&nbsp;阅读量(1000+)
+		&nbsp;评论量(2000)
+		&nbsp;点赞(1000)
+		</footer>
+	</article>
+		<article class="left-card">
+		<header>
+			<h3><a href="#">测试标题测试标题测试标题</a></h3>
+		</header>
+		<div>
+			<p>博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容博客测试内容</p>
+		</div>
+		<footer class="footer-detail">
+			
+		攀登者发表&nbsp;&nbsp;时间<time datetime="2017-12-13">2017年12月13日</time>
+		&nbsp;阅读量(1000+)
+		&nbsp;评论量(2000)
+		&nbsp;点赞(1000)
+		</footer>
+	</article>
+	</aside>
+</div>
+<!--描述：右侧内容结束-->	
+</div>
+</div>
+<!--描述：容器结束-->
+<br/>
+<br/>
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

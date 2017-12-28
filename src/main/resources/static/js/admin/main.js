@@ -94,7 +94,7 @@ $(function() {
 		var csrfHeader = $("meta[name='_csrf_header']").attr("content");
 		$.ajax({
 			url : "/users/del/" + $(this).attr("userId"),
-			type : "DELETE",
+			type : "GET",
 			beforeSend:function(request){
 				request.setRequestHeader(csrfToken,csrfHeader)
 			},

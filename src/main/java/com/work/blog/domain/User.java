@@ -85,7 +85,7 @@ public class User implements UserDetails,Serializable{
 		this.password = password;
 	}
 	
-	
+	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		//  需将 List<Authority> 转成 List<SimpleGrantedAuthority>，否则前端拿不到角色列表名称
 		List<SimpleGrantedAuthority> simpleAuthorities = new ArrayList<>();
@@ -124,12 +124,14 @@ public class User implements UserDetails,Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	@Override
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	@Override
 	public String getPassword() {
 		return password;
 	}

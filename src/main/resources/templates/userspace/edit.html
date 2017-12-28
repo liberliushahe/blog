@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/header :: header">
+</head>
+
+<body>
+<!--描述：容器开始-->
+<div class="container">
+<div class="row">
+<!--描述：左侧内容开始-->
+<div class="col-md-3 col-sm-12">
+	<aside>
+		<div class="user-info">
+			<img src="img/head.jpg" />	
+			<br />
+			<div>
+				<span>admin</span><br />
+			</div>
+		</div>
+		<br />
+	
+	</aside>
+</div>
+<!--描述：左侧内容结束-->		
+<!--描述：右侧内容开始-->		
+<div class="col-md-9 col-sm-12">
+	<aside>
+		<!--
+        	描述：头部tab
+        -->
+        <header>
+        	<h3>用户信息设置</h3>
+        	
+        </header>
+        <br />
+		<form action="#" method="post">
+			<div class="input-group">
+				<span class="input-group-addon">用户姓名</span><input class="form-control" type="text"/>
+			</div>
+			<br />
+		<div class="input-group">
+				<span class="input-group-addon">用&nbsp;&nbsp;户&nbsp;&nbsp;名</span><input class="form-control" type="text" readonly="readonly"/>
+			</div>
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon">用户密码</span><input class="form-control" type="text"/>
+			</div>
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon">用户邮箱</span><input class="form-control" type="text"/>
+			</div>
+			<br />
+						<div class="input-group">
+				<input class="btn btn-default" type="submit" value="提交"/>
+			</div>
+		</form>
+	</aside>
+</div>
+<!--描述：右侧内容结束-->	
+</div>
+</div>
+<!--描述：容器结束-->
+<br/>
+<br/>
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

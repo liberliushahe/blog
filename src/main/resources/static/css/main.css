@@ -53,6 +53,7 @@ ul li{
 	width: 35px;
 	height: 35px;
 	border-radius: 50%;
+	margin-bottom:4px;
 }
 /**
  * 右侧内容样式
@@ -246,10 +247,10 @@ ul li{
 */
 .right-wrap-click{margin-left:66px;}
 .right-wrap-margin{margin-left: 220px;}
-.right-wrap{position: relative; width: auto; height:100%;}
+.right-wrap{position: relative; width: auto; height:90%;}
 /*表格样式*/
 .xt-table{ margin: 20px; border: 1px solid #dcdcdc;}
-.xt-table td,.xt-table th{ background: #fff;padding:10px;}
+.xt-table td,.xt-table th{ background: #fff;padding:6px;}
 .xt-table th{ background: #EEE; border:1px solid #eee; text-align:center}
 .xt-table tr{text-align:center;}
 .xt-table tr.xt-bg td{ background: #f9fafa;}
@@ -317,4 +318,33 @@ ul li{
 }
 .input-group-admin{
 	width:100%;
+}
+/*用户个人中心样式*/
+
+.user-info{
+text-align: center;	
+}
+.user-info img{
+	width: 140px;
+	height: 160px;
+	border-radius: 10%;
+}
+.user-info a{
+	display: inline-block;
+	background-color: darkgray;
+	width: 50px;
+	height: 20px;
+	padding: 2px;
+	margin-top: 6px;
+}
+.user-catalog{
+	margin: 0 auto;
+	width:80%;
+	text-align: center;
+}
+.user-catalog ul li:hover{
+	background-color: lightgray;
+}
+.add-catalog{
+	margin: 3px;
 }

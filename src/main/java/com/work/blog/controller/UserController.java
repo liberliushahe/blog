@@ -3,6 +3,8 @@ package com.work.blog.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +13,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +43,7 @@ import com.work.blog.vo.Response;
  */
 @RestController
 @RequestMapping("/users")
-@PreAuthorize("hasAuthority('ROLE_ADMIN')")
+
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -91,7 +96,6 @@ public class UserController {
 		listAuthority.add(authority);
 		user.setAuthorities(listAuthority);
 		User newuser=null;
-		System.out.println("编辑用户");
 		if(user.getId()==0){
 			user.setEncodePassword(user.getPassword());
 		}else{
@@ -121,7 +125,7 @@ public class UserController {
 	 * @param model
 	 * @return
 	 */
-	@DeleteMapping(value="del/{id}")
+	@GetMapping(value="del/{id}")
     public ResponseEntity<Response> delete(@PathVariable("id") long id,Model model){
 		try{
 	       userService.removeUser(id);
@@ -145,4 +149,5 @@ public class UserController {
 		return new ModelAndView("users/edit", "userModel", model);
 	  
     }
+	
 }

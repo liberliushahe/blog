@@ -10,9 +10,9 @@
 	    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 		<title>博客首页</title>   
 		<!-- 系统样式 -->
-		<link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
+		<link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}"/>
 		<!-- 自定义样式 -->          
-		<link rel="stylesheet" href="css/main.css" th:href="@{css/main.css}"/>
+		<link rel="stylesheet" href="css/main.css" th:href="@{../css/main.css}"/>
 	</head>
 	<!--
         	作者：1540077031@qq.com
@@ -54,14 +54,14 @@
 		<span class="sr-only">切换下拉菜单</span>
 	</button>
 	<ul class="dropdown-menu" role="menu" style="text-align:center">
-		<li><a href="#">个人中心</a></li>
+		<li><a href="#" th:href="@{'/user/' + ${#authentication.name}}">个人中心</a></li>
 		<li class="divider"></li>
-		<li><a href="#">个人设置</a></li>
+		<li><a href="#" th:href="@{'/user/'+${#authentication.name}+'/profile'}">个人设置</a></li>
 		<li class="divider"></li>
 		<li><a href="/logout" th:href="@{/logout}">退出登录</a></li>
 	</ul>
 </div>
-			<a class="btn btn-default btn-write" href="#"><img src="img/write.png" />&nbsp;写博客</a>			
+			<a class="btn btn-default btn-write" href="#"><img src="../img/write.png" />&nbsp;写博客</a>			
 		</div>
 	<div sec:authorize="isAnonymous()" class="navbar-form navbar-right" >
 		<a class="btn btn-default btn-login" href="/login" sec:authorize="isAnonymous()" >登录</a>

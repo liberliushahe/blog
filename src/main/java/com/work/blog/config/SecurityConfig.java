@@ -28,22 +28,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final String KEY = "liushahe.com";
 	@Autowired
 	private UserDetailsService userDetailsService;
-	
+
 	@Autowired
-    private PasswordEncoder passwordEncoder;
-	
-	@Bean  
-    public PasswordEncoder passwordEncoder() {  
-        return new BCryptPasswordEncoder();   // 使用 BCrypt 加密
-    }  
-	
-	@Bean  
-    public AuthenticationProvider authenticationProvider() {  
+	private PasswordEncoder passwordEncoder;
+    /**
+     * 使用 BCrypt 加密
+     * @return
+     */
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder(); 
+	}
+
+	@Bean
+	public AuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
 		authenticationProvider.setUserDetailsService(userDetailsService);
-		authenticationProvider.setPasswordEncoder(passwordEncoder); // 设置密码加密方式
-        return authenticationProvider;  
-    }  
+		// 设置密码加密方式
+		authenticationProvider.setPasswordEncoder(passwordEncoder); 
+		return authenticationProvider;
+	}
+
 	/**
 	 * 自定义安全配置方法
 	 */
@@ -52,26 +57,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 				// 允许静态文件通过
-				.antMatchers("css/**", "js/**", "font/**","img/**").permitAll().antMatchers("/console/**").permitAll()
+				.antMatchers("css/**", "js/**", "font/**", "img/**").permitAll().antMatchers("/console/**").permitAll()
 				// 允许拥有管理员角色的用户访问
 				.antMatchers("/admin/**").hasRole("ADMIN").and()
 				// 表单登录以及登录界面和失败登录界面
 				.formLogin().loginPage("/login").failureUrl("/login-error").and()
-				.logout().logoutUrl("/logout").and()
 				// 启用记住我功能
 				.rememberMe().key(KEY).and()
 				// 处理异常 如果拒绝连接错误则跳转相应的页面
 				.exceptionHandling().accessDeniedPage("/403");
 		// 禁用 H2 控制台的 CSRF 防护
 		http.csrf().ignoringAntMatchers("/console/**");
-		//由于默认启用了csrf防护导致post提交一直报405错误，暂时禁用
-		//http.csrf().disable();
+		// 由于默认启用了csrf防护导致post提交一直报405错误，暂时禁用
+		 //http.csrf().disable();
 		// 允许来自同一来源的H2 控制台的请求
 		http.headers().frameOptions().sameOrigin();
 
 	}
+
 	/**
 	 * 认证信息管理
+	 * 
 	 * @param auth
 	 * @throws Exception
 	 */
