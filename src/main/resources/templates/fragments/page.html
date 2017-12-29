@@ -1,35 +1,72 @@
- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 </head>
 <body>
- <nav data-th-fragment="page" data-th-if="${page.totalPages gt 0}" data-th-object="${page}">
-<div class="xt-fenye"  data-th-fragment="page">
-        <div class="xt-fenye-left"  data-th-object="${page}">当前第 1页,每页10条，共[[${page.totalElements}]]条记录</div>
-        <div class="xt-fenye-right">
-        <a >首页</a> <a>上一页</a>
-        <a>下一页</a> <a>尾页</a>
-             <input type="text" name="text" id="page"/>
-           <a href="" class="xt-link" id="skip" onclick="getPage()">跳转</a>
-           
-        </div>
-        
-    </div>	
- 
- 
-</nav>
+	<nav data-th-fragment="page" data-th-if="${page.totalPages gt 0}"
+		data-th-object="${page}" class="page-style">
+		<!-- 处理总页数小于等于10的情况,所有页数都显示 -->
+		<ul class="pagination" data-th-if="${page.totalPages le 10}">
+		
+			<!-- 如果是第一页则上一页按钮不可点击 -->
+			<li data-th-classappend="*{first} ? 'disabled':''"><a
+				href="javascript:void(0)" data-th-attr="pageIndex=${page.number}-1">上一页</a></li>
+				
+			<!-- 开始迭代生成页面按钮 -->
+			<li data-th-each="i:${#numbers.sequence(1,page.totalPages)}"
+				data-th-classappend="${(page.number+1) eq i} ? 'active':_"><a
+				data-th-attr="pageIndex=${i}-1" th:text="${i}"
+				href="javascript:void(0);">1</a></li>
+			<!-- 如果是最后一页则下一页按钮不可点击 -->
+			
+			<li data-th-classappend="*{last} ? 'disabled':''"><a
+				href="javascript:void(0)" data-th-attr="pageIndex=${page.number}+1">下一页</a></li>
+				
+		</ul>
+		<!-- 处理总页数大于10的情况 -->
+		<ul class="pagination" data-th-if="${page.totalPages gt 10}">
+			<!-- 如果是第一页则上一页按钮不可点击 -->
+			<li data-th-classappend="*{first} ? 'disabled':''"><a
+				href="javascript:void(0)" data-th-attr="pageIndex=${page.number}-1">上一页</a></li>
+			<!-- 确保界面有10条以上数据 -->	
+			
+			<li
+			data-th-if="${(page.number+1) gt 5}"	data-th-each="i:${#numbers.sequence((page.number-4),(page.number+1))}" data-th-classappend="${(page.number+1) eq i} ? 'active':_">
+				<a data-th-attr="pageIndex=${i}-1" th:text="${i}"
+				href="javascript:void(0);">1</a>
+			</li>
+			
+			<li	data-th-if="${(page.number+1) gt 5}"	data-th-each="i:${#numbers.sequence((page.number+2),page.number+5)}" data-th-classappend="${(page.number+1) eq i} ? 'active':_">
+				<a data-th-attr="pageIndex=${i}-1" th:text="${i}"
+				href="javascript:void(0);">1</a>
+			</li>
+			
+			<li
+			data-th-if="${(page.number+1) le 5}"	data-th-each="i:${#numbers.sequence((page.number+1),(10-page.number))}" data-th-classappend="${(page.number+1) eq i} ? 'active':_">
+				<a data-th-attr="pageIndex=${i}-1" th:text="${i}"
+				href="javascript:void(0);">1</a>
+			</li>
+			
+	
+			
+			<!-- 如果是最后一页则下一页按钮不可点击 -->
+			<li data-th-classappend="*{last} ? 'disabled':''"><a
+				href="javascript:void(0)" data-th-attr="pageIndex=${page.number}+1">下一页</a></li>
+				
+		</ul>
+	</nav>
 </body>
-</html>  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+</html>
+
+
+
+
+
+
+
+
+
+
+

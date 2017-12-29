@@ -10,55 +10,47 @@
 <div class="container">
 <div class="row">
 <!--描述：左侧内容开始-->
-<div class="col-md-3 col-sm-12">
-	<aside>
-		<div class="user-info">
-			<img src="img/head.jpg" />	
-			<br />
-			<div>
-				<span>admin</span><br />
-			</div>
-		</div>
-		<br />
+<div class="col-md-12 col-sm-12">
+	<div class="article-content">
+		  <div class="article-head article-position" >
+		  	<p class="article-tip">文章标题 尊重原创，请保证您的文章为原创作品</p>
+		  	<select class="article-type">
+                		<option>请选择</option>
+                		<option>原创</option>
+                		<option>原创</option>
+                	</select>
+                 <input type="text" class="article-title"/>
+                 	
+		  </div>
+
+          <div class="summary-wrap article-position">
+          	<p class="article-tip">摘要：（默认自动提取您文章的前200字显示在博客首页作为文章摘要，您也可以在这里自行编辑 ）</p>
+          	<textarea id="summary">test</textarea>	
+          </div>
+          
+		  <div class="content-wrap article-position">
+		  	<p class="article-tip">文章内容</p>
+		  	 <textarea id="content">内容</textarea>	
+		  </div>	
+	      <div class="upload-image article-position">
+	      	<input type="file" />
+	      </div>
+	      <div class="own-catalog article-position">
+	      	<p class="article-tip">个人分类</p><br />
+	      	<input type="text" />
+	      </div>
+
+	     <div class="own-tag article-position">
+	      	      	<p class="article-tip">个人标签</p><br />
+	      	<input type="text" />
+	      </div>
+	       <div class="article-btn article-position">
+	      	<input type="submit" value="提交" class="btn btn-default"/> &nbsp;&nbsp;&nbsp;&nbsp;	<input type="submit" value="重置" class="btn btn-default" />&nbsp;&nbsp;&nbsp;&nbsp;		<input type="submit" value="丢弃" class="btn btn-default" />
+	      </div>
+	</div>
 	
-	</aside>
 </div>
 <!--描述：左侧内容结束-->		
-<!--描述：右侧内容开始-->		
-<div class="col-md-9 col-sm-12">
-	<aside>
-		<!--
-        	描述：头部tab
-        -->
-        <header>
-        	<h3>用户信息设置</h3>
-        	
-        </header>
-        <br />
-		<form action="#" method="post">
-			<div class="input-group">
-				<span class="input-group-addon">用户姓名</span><input class="form-control" type="text"/>
-			</div>
-			<br />
-		<div class="input-group">
-				<span class="input-group-addon">用&nbsp;&nbsp;户&nbsp;&nbsp;名</span><input class="form-control" type="text" readonly="readonly"/>
-			</div>
-			<br />
-			<div class="input-group">
-				<span class="input-group-addon">用户密码</span><input class="form-control" type="text"/>
-			</div>
-			<br />
-			<div class="input-group">
-				<span class="input-group-addon">用户邮箱</span><input class="form-control" type="text"/>
-			</div>
-			<br />
-						<div class="input-group">
-				<input class="btn btn-default" type="submit" value="提交"/>
-			</div>
-		</form>
-	</aside>
-</div>
-<!--描述：右侧内容结束-->	
 </div>
 </div>
 <!--描述：容器结束-->

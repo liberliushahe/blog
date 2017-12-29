@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/header :: header">
+</head>
+
+<body>
+<!--描述：容器开始-->
+			<div class="container">
+				<div class="row">
+					<!--描述：左侧内容开始-->
+					<div class="col-md-9 col-sm-12">
+						<div class="left-content-detail">
+							<article>
+								<header>
+									<h3>oracle数据库安装异常处理</h3>
+								</header>
+								<footer>
+									<div>
+										<span class="article-type">原创</span>
+										<span>2017-12-12 12:12:12</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<span>标签:</span><span><a href="#">数据库</a>&nbsp;/&nbsp;<a href="#">数据</a></span>
+										<div class="article-operate-info">
+											<span>阅读量200</span>
+											<span><a href="#">编辑</a></span>
+											<span><a href="#">删除</a></span>
+										</div>
+
+									</div>
+									<hr />
+								</footer>
+								<div class="content">
+									<p>
+										java.sql.SQLException: Io 异常: The Network Adapter could not establish the connection at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112) at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146) at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:255) at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:387) at oracle.jdbc.driver.PhysicalConnection.
+										<init>(PhysicalConnection.java:414) at oracle.jdbc.driver.T4CConnection.
+											<init>(T4CConnection.java:165) at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:35) at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:801) at java.sql.DriverManager.getConnection(DriverManager.java:525) at java.sql.DriverManager.getConnection(DriverManager.java:171) at pack.java.connection.demo.BaseDao.getConnection(BaseDao.java:35) at pack.java.connection.demo.BaseDao.
+												<init>(BaseDao.java:23) at pack.java.connection.demo.BaseDao.main(BaseDao.java:98) Oracle 用户名或密码错误! 解决方案: 像这种适配器的错误,有很多原因. 比如驱动程序 或者URL写错.. 还有,用户名和密码;. 如果这些确定没有写错,然后再检查你的oracle安装目录下,比如:F:\oracle\product\10.2.0\db_1\NETWORK\ADMIN 这个目录下的 listener.ora tnsnames.ora 这两个文件,打开 listener.ora文件. java.sql.SQLException: Io 异常: The Network Adapter could not establish the connection at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112) at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146) at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:255) at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:387) at oracle.jdbc.driver.PhysicalConnection.
+													<init>(PhysicalConnection.java:414) at oracle.jdbc.driver.T4CConnection.
+														<init>(T4CConnection.java:165) at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:35) at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:801) at java.sql.DriverManager.getConnection(DriverManager.java:525) at java.sql.DriverManager.getConnection(DriverManager.java:171) at pack.java.connection.demo.BaseDao.getConnection(BaseDao.java:35) at pack.java.connection.demo.BaseDao.
+															<init>(BaseDao.java:23) at pack.java.connection.demo.BaseDao.main(BaseDao.java:98) Oracle 用户名或密码错误! 解决方案: 像这种适配器的错误,有很多原因. 比如驱动程序 或者URL写错.. 还有,用户名和密码;. 如果这些确定没有写错,然后再检查你的oracle安装目录下,比如:F:\oracle\product\10.2.0\db_1\NETWORK\ADMIN 这个目录下的 listener.ora tnsnames.ora 这两个文件,打开 listener.ora文件.
+									</p>
+									<footer>版权声明：本文为博主原创文章，未经博主允许不得转载。</footer>
+								</div>
+							</article>
+
+						</div>
+						<div class="publish-comment">
+							<textarea class="publish-comment-content" placeholder="发表你的评论"></textarea>
+							<span>还能输入1000字</span> <input type="submit" value="发表评论" class="btn btn-default" />
+						</div>
+						<div class="comment">
+							<header>
+								<h4>评论区</h4>
+							</header>
+							<hr />
+
+							<div class="comment-detail">
+								<div class="comment-user-head-wrap">
+									<div class="comment-user-head">
+										<img src="img/head.jpg" />
+									</div>
+									<div class="comment-user-info">
+										<span>admin</span><br />
+										<span>1楼</span>&nbsp; <span>2017-12-12 12:12：12</span>&nbsp;&nbsp;<span>来自于北京的网友</span>
+									</div>
+								</div>
+								<div class="comment-user-content">
+									<p>占位符占位符占位符占位符占位符占位符</p>
+								</div>
+								<div class="user-comment-answer">
+									<a href="#">点赞</a>
+									<a href="#">回复</a>
+								</div>
+							</div>
+							<hr />
+							<div class="comment-detail">
+								<div class="comment-user-head-wrap">
+									<div class="comment-user-head">
+										<img src="img/head.jpg" />
+									</div>
+									<div class="comment-user-info">
+										<span>admin</span><br />
+										<span>1楼</span>&nbsp; <span>2017-12-12 12:12：12</span>&nbsp;&nbsp;<span>来自于北京的网友</span>
+									</div>
+								</div>
+								<div class="comment-user-content">
+									<p>占位符占位符占位符占位符占位符占位符</p>
+								</div>
+								<div class="user-comment-answer">
+									<a href="#">点赞</a>
+									<a href="#">回复</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--描述：左侧内容结束-->
+					<!--描述：右侧内容开始-->
+					<div class="col-md-3 col-sm-12">
+						<article class="right-card">
+							<header>
+								<img src="img/head.jpg" style="width=50px;height:50px;border-radius:50%" />
+								<span>Admin</span>
+							</header>
+							<br />
+							<footer>
+								原创：20 转载 12
+							</footer>
+						</article>
+
+						<article class="right-card">
+							<header>
+								<h3><span class="split">|</span>他的最新文章</h3>
+								<hr />
+							</header>
+							<article class="hot-title">
+								<ul>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章标</a>
+									</li>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章标</a>
+									</li>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章</a>
+									</li>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章标题</a>
+									</li>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章标题章标题测试文</a>
+									</li>
+								</ul>
+							</article>
+						</article>
+						<article class="right-card">
+							<header>
+								<h3><span class="split">|</span>他的热门文章</h3>
+								<hr />
+							</header>
+							<article class="hot-title">
+								<ul>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章标</a>
+									</li>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章标</a>
+									</li>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章</a>
+									</li>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章标题</a>
+									</li>
+									<li>
+										<a href="#">测试文章标题测试文章标题测试文章标题章标题测试文</a>
+									</li>
+								</ul>
+							</article>
+						</article>
+
+					</div>
+					<!--描述：右侧内容结束-->
+				</div>
+			</div>
+			<!--描述：容器结束-->
+<br/>
+<br/>
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

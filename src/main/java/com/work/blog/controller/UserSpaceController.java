@@ -36,7 +36,7 @@ public class UserSpaceController {
 	}
 	
 	/**
-	 * 获取用户的某一篇博客
+	 * 获取用户的一篇博客
 	 * @param username
 	 * @param id
 	 * @param model
