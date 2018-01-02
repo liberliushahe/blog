@@ -55,8 +55,8 @@ public class UserController {
 	 */
 	@GetMapping
 	public ModelAndView list(@RequestParam(value="async",required=false) boolean async,
-			@RequestParam(value="pageIndex",required=false,defaultValue="8") int index,
-			@RequestParam(value="pageSize",required=false,defaultValue="1") int size,
+			@RequestParam(value="pageIndex",required=false,defaultValue="0") int index,
+			@RequestParam(value="pageSize",required=false,defaultValue="10") int size,
 			@RequestParam(value="name",required=false,defaultValue="") String name,
 			Model model) {
 		    Pageable pageable=new PageRequest(index, size);	
